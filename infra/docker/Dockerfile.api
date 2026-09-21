@@ -27,8 +27,8 @@ RUN npm install -g pnpm@9.1.0
 # Install all monorepo dependencies (needed for workspace resolution)
 RUN pnpm install --frozen-lockfile
 
-# Generate Prisma Client
-RUN pnpm --filter @gubernajur/api prisma generate
+# Generate Prisma Client (schema is at root prisma/schema.prisma)
+RUN npx prisma generate --schema prisma/schema.prisma
 
 # Build the application
 RUN pnpm --filter @gubernajur/api build
