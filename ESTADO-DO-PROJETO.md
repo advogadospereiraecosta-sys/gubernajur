@@ -61,11 +61,13 @@ Next.js na Vercel, banco no Supabase. Domínio **pereiraecostaadvogados.com.br**
 | `lib/autentique.ts` | Cliente Autentique, agora com WhatsApp/SMS/link | modificado |
 | `lib/supabase-middleware.ts` | `/calculadoras-bancarias` liberado | modificado |
 
-**Branch:** `feat/calculadoras-bancarias` · **PR #2 aberto, não mergeado**
-https://github.com/advogadospereiraecosta-sys/crm-imobiliario/pull/2
+**Tudo commitado e publicado.** Dois PRs abertos, empilhados:
 
-Os arquivos de `lib/revisional/`, `docs/revisional/` e a alteração em
-`lib/autentique.ts` **não estão commitados** — ficaram no working tree.
+- [PR #2](https://github.com/advogadospereiraecosta-sys/crm-imobiliario/pull/2)
+  — `feat/calculadoras-bancarias` → `main`: a landing.
+- [PR #4](https://github.com/advogadospereiraecosta-sys/crm-imobiliario/pull/4)
+  — `feat/revisional-nucleo` → `feat/calculadoras-bancarias`: o núcleo, o
+  mestre, o ementário e este documento.
 
 ### 2.2 `C:\Users\davi9\gubernajur` — SaaS jurídico
 
@@ -93,7 +95,9 @@ Next.js + NestJS + Postgres + Redis. É onde o produto passou a morar.
 | `.env.production.example` | modelo de variáveis |
 | `scripts/sync-mestre.js` | regenera o mestre em .ts |
 
-**Build passando, typecheck limpo.** Nada commitado.
+**Build passando, typecheck limpo.** Versionado e publicado em
+**https://github.com/advogadospereiraecosta-sys/gubernajur** (privado, branch
+`master`).
 
 ### 2.3 `C:\Users\davi9\fluxdchat` — CRM omnichannel
 
@@ -224,11 +228,25 @@ A correção da mora exigiu mudança também em `decidirCaminho()`: a tese agora
 liga quando há mora **e** a abusividade está nos juros remuneratórios. Antes
 ligava em qualquer caminho B ou C, o que contrariava o Tema 972, item 3.
 
-### 6.2 Fechar o que está pendente de commit
+### 6.2 Mergear os dois PRs do site
 
-- **PR #2** do site está aberto, não mergeado.
-- `lib/revisional/`, `docs/revisional/`, `docs/ESTADO-DO-PROJETO.md` e
-  `lib/autentique.ts` do site: não commitados.
+Tudo está commitado e publicado. Faltam os merges, **nesta ordem**, porque o
+segundo está empilhado sobre o primeiro:
+
+| PR | Conteúdo | Base |
+|---|---|---|
+| [#2](https://github.com/advogadospereiraecosta-sys/crm-imobiliario/pull/2) | landing pública das calculadoras | `main` |
+| [#4](https://github.com/advogadospereiraecosta-sys/crm-imobiliario/pull/4) | núcleo do revisional, mestre, ementário | `feat/calculadoras-bancarias` |
+
+Foram separados de propósito: a landing é unidade fechada e pode ir a produção
+hoje; o núcleo ainda depende da revisão jurídica do mestre e das ementas.
+
+**Os dois vão mostrar checks vermelhos da Vercel.** Não é falha de build — é
+bloqueio de identidade: `Git author fluxdchat-byte must have access to the
+project on Vercel to create deployments`. Preview de branch fica barrado; o
+merge em `main` gera commit da conta do escritório e publica normalmente, como
+ocorreu no PR #1. Resolver de vez é adicionar `fluxdchat-byte` ao projeto na
+Vercel.
 
 ### 6.3 Deploy do gubernajur
 
@@ -254,7 +272,28 @@ recusa tudo, de propósito** (falha fechada).
 - `scon.stj.jus.br` está atrás de verificação anti-robô. Usar os portais dos TJs
   ou pedir que um humano faça a verificação.
 
-### 6.6 Ponte com o fluxdchat (decidido, não iniciado)
+### 6.6 Pendências operacionais, fora de código
+
+**Vercel.** Adicionar `fluxdchat-byte` ao projeto, para o preview de branch
+voltar a funcionar (ver §6.2).
+
+**Canonical das landings antigas.** `/leiloes`, `/leiloes/judicial`,
+`/leiloes/extrajudicial`, `/restituicao-itcmd` e `/restituicao-teto-inss`
+apontam para `advogadospereiraecosta.com.br`, que **não responde**. O domínio
+vivo é `pereiraecostaadvogados.com.br`. A página nova já saiu correta. Há uma
+tarefa iniciada em sessão separada para isso.
+
+**Caso REV-2026-0001.** Antes de gerar documento real para a Maria Luciana:
+o **RG verdadeiro** (o atual, `2782598`, é valor de teste), **quem avaliou** o
+veículo dado em troca — banco ou loja, define a força da tese dos R$ 450 — e o
+**número da CCB**, já que o PDF em pasta traz número de orçamento.
+
+**Webhook do site.** Conferir se `AUTENTIQUE_WEBHOOK_SECRET` está definido na
+Vercel. Se não estiver, o webhook do funil do teto do INSS aceita qualquer POST
+— `isValidSignature` faz `return !secret`. O webhook do gubernajur não repete
+esse padrão.
+
+### 6.7 Ponte com o fluxdchat (decidido, não iniciado)
 
 Integração **opcional e por inquilino**, para os dois produtos seguirem
 vendáveis separados. Desenho acordado:
@@ -327,7 +366,8 @@ páginas antigas; a nova já saiu certa.
 ## 9. Como retomar
 
 1. Ler este arquivo e `docs/revisional/ementario.md`.
-2. **Corrigir o modelo mestre** (§6.1) — é o que bloqueia o uso real.
-3. Commitar o que está no working tree dos dois repositórios.
-4. Deploy pelo `gubernajur/DEPLOY.md`.
-5. Retomar o ementário e, depois, a ponte com o fluxdchat.
+2. Conferir §6 — o que falta, em ordem.
+3. Mergear os PRs #2 e #4, nessa ordem (§6.2).
+4. Deploy pelo `gubernajur/DEPLOY.md` (§6.3).
+5. Configurar o segredo do webhook (§6.4) e as pendências operacionais (§6.6).
+6. Retomar o ementário (§6.5) e, depois, a ponte com o fluxdchat (§6.7).
