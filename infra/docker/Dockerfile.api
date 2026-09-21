@@ -19,8 +19,10 @@ RUN pnpm install --frozen-lockfile
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /usr/local/bin/pnpm /usr/local/bin/pnpm
 COPY . .
+
+# Install pnpm locally (the binary from deps stage has broken references)
+RUN npm install -g pnpm@9.1.0
 
 # Generate Prisma Client
 RUN pnpm --filter @gubernajur/api prisma generate
