@@ -1,0 +1,4233 @@
+{
+  "menus": [
+    {
+      "href": "/",
+      "text": "Painel",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/inbox",
+      "text": "Publicações",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/processos",
+      "text": "Processos",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/clientes",
+      "text": "Clientes",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/notificacoes",
+      "text": "Notificações",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/kanban",
+      "text": "Demandas",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/agenda",
+      "text": "Agenda",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/financeiro",
+      "text": "FinanceiroPleno",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/equipe",
+      "text": "Equipe",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/integracoes",
+      "text": "Integrações",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/configuracoes",
+      "text": "Configurações",
+      "className": "group relative mb-px flex items-center gap-2.5 rounded-md text-[13px] transition-all hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    },
+    {
+      "href": "/central-de-ajuda",
+      "text": "Central de ajuda",
+      "className": "flex items-center gap-2.5 rounded-md text-[13px] transition-colors hover:bg-[var(--hover-bg)] hover:text-[var(--color-text-primary)]"
+    }
+  ],
+  "pages": {
+    "/": {
+      "name": "Painel",
+      "category": "Dashboard",
+      "url": "https://app.advcontroller.com.br/",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Painel.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/inbox": {
+      "name": "Publicações",
+      "category": "Outro",
+      "url": "https://app.advcontroller.com.br/inbox",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Publica__es.png",
+      "title": "advcontroller",
+      "headings": [
+        "Publicações",
+        "Nenhuma publicação ainda"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Integrar",
+        "Novo",
+        "Filtros1",
+        "Limpar",
+        "Novo"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#publicacoes"
+        }
+      ]
+    },
+    "/processos": {
+      "name": "Processos",
+      "category": "Processos",
+      "url": "https://app.advcontroller.com.br/processos",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Processos.png",
+      "title": "advcontroller",
+      "headings": [
+        "Processos",
+        "Nenhum processo cadastrado"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Lista",
+        "Funil",
+        "Integrar",
+        "Novo",
+        "Filtros",
+        "Novo"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#processos"
+        }
+      ]
+    },
+    "/clientes": {
+      "name": "Clientes",
+      "category": "Clientes",
+      "url": "https://app.advcontroller.com.br/clientes",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Clientes.png",
+      "title": "advcontroller",
+      "headings": [
+        "Clientes",
+        "Nenhum cliente cadastrado"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Novo",
+        "Filtros",
+        "Novo"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#clientes"
+        }
+      ]
+    },
+    "/notificacoes": {
+      "name": "Notificações",
+      "category": "Outro",
+      "url": "https://app.advcontroller.com.br/notificacoes",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Notifica__es.png",
+      "title": "advcontroller",
+      "headings": [
+        "Notificações"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Filtros1",
+        "Limpar",
+        "Limpar filtros"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#notificacoes"
+        }
+      ]
+    },
+    "/kanban": {
+      "name": "Demandas",
+      "category": "Outro",
+      "url": "https://app.advcontroller.com.br/kanban",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Demandas.png",
+      "title": "advcontroller",
+      "headings": [
+        "Demandas",
+        "Nenhuma demanda ainda"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Filtros",
+        "Kanban",
+        "Lista",
+        "Novo",
+        "Novo"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#demandas"
+        }
+      ]
+    },
+    "/agenda": {
+      "name": "Agenda",
+      "category": "Agenda",
+      "url": "https://app.advcontroller.com.br/agenda",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Agenda.png",
+      "title": "advcontroller",
+      "headings": [
+        "Agenda",
+        "Próximos 14 dias"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Filtros",
+        "Dia",
+        "Semana",
+        "Mês",
+        "Integrar",
+        "Novo",
+        "Hoje"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "domsegterquaquisexsáb3031123456789101112131415161718192021222324252627282930123",
+        "Próximos 14 diasNada marcado nos próximos 14 dias."
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#agenda"
+        }
+      ]
+    },
+    "/financeiro": {
+      "name": "FinanceiroPleno",
+      "category": "Financeiro",
+      "url": "https://app.advcontroller.com.br/financeiro",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/FinanceiroPleno.png",
+      "title": "advcontroller",
+      "headings": [
+        "Financeiro",
+        "Fluxo de caixapago conta na data do pagamento; em aberto, no vencimento (previsto) · valores em R$"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Cobranças e caixa",
+        "Contas",
+        "Cartões",
+        "Dias",
+        "Semanas",
+        "Meses",
+        "Tudo",
+        "Entradas",
+        "Saídas",
+        "Em aberto",
+        "Mensalidades",
+        "Dia",
+        "Semana",
+        "Mês",
+        "Ano",
+        "Novo",
+        "Relatório de guias"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Fluxo de caixapago conta na data do pagamento; em aberto, no vencimento (previsto) · valores em R$Di",
+        "Entradas realizadasR$ 0,00",
+        "Saídas realizadasR$ 0,00",
+        "Caixa da empresaR$ 0,00Saldo das contas hoje",
+        "LucroR$ 0,00setembro de 2026",
+        "A receberR$ 0,00Total em aberto",
+        "Vencidas0Do que você tem a receber"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#financeiro"
+        }
+      ]
+    },
+    "/equipe": {
+      "name": "Equipe",
+      "category": "Usuários",
+      "url": "https://app.advcontroller.com.br/equipe",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Equipe.png",
+      "title": "advcontroller",
+      "headings": [
+        "Equipe"
+      ],
+      "forms": {
+        "form-0": {
+          "id": "form-0",
+          "action": null,
+          "inputs": [
+            {
+              "type": "select/textarea",
+              "name": null,
+              "id": "invite-email",
+              "placeholder": "nome@dominio.com",
+              "required": true
+            }
+          ]
+        }
+      },
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Membro",
+        "Convidar",
+        "Atribuir função"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#equipe"
+        }
+      ]
+    },
+    "/integracoes": {
+      "name": "Integrações",
+      "category": "Outro",
+      "url": "https://app.advcontroller.com.br/integracoes",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Integra__es.png",
+      "title": "advcontroller",
+      "headings": [
+        "Integrações",
+        "Ativas",
+        "Disponíveis",
+        "Em breve"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Todas",
+        "Ativas",
+        "Minhas",
+        "Do escritório"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Diário da JustiçaÚltima busca: 16/09, 12:09Conectada",
+        "Google AgendaSeus compromissos nos dois sentidos, entre a Agenda daqui e a do Google.Disponível",
+        "Google DriveAnexe arquivos do seu Drive ao processo, e abra a pasta do caso num clique.Disponível",
+        "Classificação por IACada publicação chega com área sugerida, resumo de uma linha e o prazo achado no",
+        "Importar por planilhaTraga a carteira de outro sistema com um modelo pronto.Disponível",
+        "ClaudeMCPConsulte e opere a operação do escritório pela conversa, com acesso por pessoa.Disponível",
+        "WhatsAppAvise o cliente do andamento e receba mensagem dele dentro do processo.Em breve",
+        "GmailEncaminhe a intimação que chegou por e-mail e ela entra na fila de Publicações.Em breve",
+        "Outlook CalendarSeus prazos e compromissos na agenda do Outlook, pra quem vive no Microsoft 365.Em b"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#integracoes"
+        },
+        {
+          "text": "Diário da JustiçaÚltima busca: 16/09, 12:09Conectada",
+          "href": "/integracoes/diario"
+        },
+        {
+          "text": "Google AgendaSeus compromissos nos dois sentidos, entre a Agenda daqui e a do Google.Disponível",
+          "href": "/integracoes/google/agenda"
+        },
+        {
+          "text": "Google DriveAnexe arquivos do seu Drive ao processo, e abra a pasta do caso num clique.Disponível",
+          "href": "/integracoes/google/drive"
+        },
+        {
+          "text": "Classificação por IACada publicação chega com área sugerida, resumo de uma linha e o prazo achado no texto. Você confirma na triagem.Desligada",
+          "href": "/integracoes/ia"
+        },
+        {
+          "text": "Importar por planilhaTraga a carteira de outro sistema com um modelo pronto.Disponível",
+          "href": "/integracoes/planilha"
+        },
+        {
+          "text": "ClaudeMCPConsulte e opere a operação do escritório pela conversa, com acesso por pessoa.Disponível",
+          "href": "/integracoes/claude"
+        }
+      ]
+    },
+    "/configuracoes": {
+      "name": "Configurações",
+      "category": "Configurações",
+      "url": "https://app.advcontroller.com.br/configuracoes",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Configura__es.png",
+      "title": "advcontroller",
+      "headings": [
+        "Configurações",
+        "Novo fluxo"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Fluxos e fases",
+        "Produtos",
+        "Áreas do direito",
+        "Funções da equipe",
+        "Criar fluxo",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "Adicionar",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "Adicionar",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "Adicionar",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "Adicionar",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "Adicionar",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "sem tarefas",
+        "Desativar",
+        "Adicionar"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#configuracoes"
+        }
+      ]
+    },
+    "/central-de-ajuda": {
+      "name": "Central de ajuda",
+      "category": "Outro",
+      "url": "https://app.advcontroller.com.br/central-de-ajuda",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/pages/Central_de_ajuda.png",
+      "title": "advcontroller",
+      "headings": [
+        "Central de ajuda",
+        "Visão geral",
+        "Painel",
+        "Publicações",
+        "Processos",
+        "Clientes",
+        "Notificações",
+        "Novidades",
+        "Demandas",
+        "Agenda",
+        "Financeiro",
+        "Equipe",
+        "Integrações",
+        "Configurações"
+      ],
+      "forms": {},
+      "tables": [],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Fale com a gente",
+        "Guia",
+        "Especialista",
+        "Fale com a gente",
+        "Não achou o que procurava?Pergunte ao especialista da plataforma, com suas palavras."
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Visão geral",
+          "href": "/central-de-ajuda#visao-geral"
+        },
+        {
+          "text": "Painel",
+          "href": "/central-de-ajuda#painel"
+        },
+        {
+          "text": "Publicações",
+          "href": "/central-de-ajuda#publicacoes"
+        },
+        {
+          "text": "Processos",
+          "href": "/central-de-ajuda#processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/central-de-ajuda#clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/central-de-ajuda#notificacoes"
+        },
+        {
+          "text": "Novidades",
+          "href": "/central-de-ajuda#novidades"
+        },
+        {
+          "text": "Demandas",
+          "href": "/central-de-ajuda#demandas"
+        },
+        {
+          "text": "Agenda",
+          "href": "/central-de-ajuda#agenda"
+        },
+        {
+          "text": "Financeiro",
+          "href": "/central-de-ajuda#financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/central-de-ajuda#equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/central-de-ajuda#integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/central-de-ajuda#configuracoes"
+        },
+        {
+          "text": "Abrir Painel →",
+          "href": "/"
+        },
+        {
+          "text": "Abrir Publicações →",
+          "href": "/inbox"
+        },
+        {
+          "text": "Abrir Processos →",
+          "href": "/processos"
+        },
+        {
+          "text": "Abrir Clientes →",
+          "href": "/clientes"
+        },
+        {
+          "text": "Abrir Notificações →",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Abrir Novidades →",
+          "href": "/"
+        },
+        {
+          "text": "Abrir Demandas →",
+          "href": "/kanban"
+        },
+        {
+          "text": "Abrir Agenda →",
+          "href": "/agenda"
+        },
+        {
+          "text": "Abrir Financeiro →",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Abrir Equipe →",
+          "href": "/equipe"
+        },
+        {
+          "text": "Abrir Integrações →",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Abrir Configurações →",
+          "href": "/configuracoes"
+        }
+      ]
+    },
+    "dashboard": {
+      "widgets": [
+        {
+          "tag": "ASIDE",
+          "class": "card-glass app-sidebar relative z-10 hidden flex-s",
+          "text": "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+          "position": {
+            "x": 16,
+            "y": 16,
+            "w": 260,
+            "h": 1048
+          }
+        },
+        {
+          "tag": "DIV",
+          "class": "card-glass card-glass-glow card-glass-lift",
+          "text": "Prazos vencidos0Demandas em aberto",
+          "position": {
+            "x": 308,
+            "y": 200.9499969482422,
+            "w": 384.6000061035156,
+            "h": 69.8499984741211
+          }
+        },
+        {
+          "tag": "DIV",
+          "class": "card-glass card-glass-glow card-glass-lift",
+          "text": "Vencem hoje0Atenção imediata",
+          "position": {
+            "x": 704.6000366210938,
+            "y": 200.9499969482422,
+            "w": 384.6000061035156,
+            "h": 69.8499984741211
+          }
+        },
+        {
+          "tag": "DIV",
+          "class": "card-glass card-glass-glow card-glass-lift",
+          "text": "Próximos 7 dias0Semana atual",
+          "position": {
+            "x": 1101.2000732421875,
+            "y": 200.9499969482422,
+            "w": 384.6000061035156,
+            "h": 69.8499984741211
+          }
+        },
+        {
+          "tag": "DIV",
+          "class": "card-glass card-glass-glow card-glass-lift",
+          "text": "No prazo0Mais de 7 dias",
+          "position": {
+            "x": 1497.800048828125,
+            "y": 200.9499969482422,
+            "w": 384.6000061035156,
+            "h": 69.8499984741211
+          }
+        },
+        {
+          "tag": "DIV",
+          "class": "card-glass card-glass-glow card-glass-lift",
+          "text": "Sem prazo0Abertas sem data",
+          "position": {
+            "x": 308,
+            "y": 294.8000183105469,
+            "w": 384.6000061035156,
+            "h": 69.8499984741211
+          }
+        },
+        {
+          "tag": "DIV",
+          "class": "card-glass card-glass-glow card-glass-lift",
+          "text": "Sem responsável0Abertas sem dono",
+          "position": {
+            "x": 704.6000366210938,
+            "y": 294.8000183105469,
+            "w": 384.6000061035156,
+            "h": 69.8499984741211
+          }
+        },
+        {
+          "tag": "DIV",
+          "class": "card-glass card-glass-glow card-glass-lift",
+          "text": "Travadas0Com bloqueio ativo",
+          "position": {
+            "x": 1101.2000732421875,
+            "y": 294.8000183105469,
+            "w": 384.6000061035156,
+            "h": 69.8499984741211
+          }
+        },
+        {
+          "tag": "DIV",
+          "class": "card-glass card-glass-glow card-glass-lift",
+          "text": "Triagem pendente0Publicações tratadas",
+          "position": {
+            "x": 1497.800048828125,
+            "y": 294.8000183105469,
+            "w": 384.6000061035156,
+            "h": 69.8499984741211
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "OperaçãoCriadas × concluídasSem dados ainda",
+          "position": {
+            "x": 308,
+            "y": 388.6499938964844,
+            "w": 1044.2625732421875,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "OperaçãoConclusão de demandasSem dados ainda",
+          "position": {
+            "x": 1368.2625732421875,
+            "y": 388.6499938964844,
+            "w": 514.1375122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "OperaçãoDemandas por statusSem dados ainda",
+          "position": {
+            "x": 308,
+            "y": 727.25,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "OperaçãoIdade das demandas abertasSem dados ainda",
+          "position": {
+            "x": 1103.2000732421875,
+            "y": 727.25,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "EquipeProdução por pessoaPessoaProcessosAbertasVencidasConcluídasADadv.davipereira@gmail.com0000",
+          "position": {
+            "x": 308,
+            "y": 1065.8499755859375,
+            "w": 1044.2625732421875,
+            "h": 166.15000915527344
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "EquipeFila sem dono por funçãoNenhuma demanda esperando dono.",
+          "position": {
+            "x": 1368.2625732421875,
+            "y": 1065.8499755859375,
+            "w": 514.1375122070312,
+            "h": 214.60000610351562
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "CarteiraProcessos por faseSem dados ainda",
+          "position": {
+            "x": 308,
+            "y": 1304.4500732421875,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "CarteiraTempo médio por faseSem transições de fase registradas ainda.",
+          "position": {
+            "x": 1103.2000732421875,
+            "y": 1304.4500732421875,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "CarteiraProcessos por áreaSem dados ainda",
+          "position": {
+            "x": 308,
+            "y": 1643.050048828125,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "CarteiraProcessos por tipoSem dados ainda",
+          "position": {
+            "x": 1103.2000732421875,
+            "y": 1643.050048828125,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "CarteiraNovos processosSem dados ainda",
+          "position": {
+            "x": 308,
+            "y": 1981.6500244140625,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "ClientesNovos clientesSem dados ainda",
+          "position": {
+            "x": 1103.2000732421875,
+            "y": 1981.6500244140625,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "AtençãoProcessos paradosSem dados ainda",
+          "position": {
+            "x": 308,
+            "y": 2320.25,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "AtençãoSem demanda abertaSem dados ainda",
+          "position": {
+            "x": 1103.2000732421875,
+            "y": 2320.25,
+            "w": 779.2000122070312,
+            "h": 314.6000061035156
+          }
+        },
+        {
+          "tag": "SECTION",
+          "class": "card-glass",
+          "text": "EntradaPublicações recebidasSem dados ainda",
+          "position": {
+            "x": 308,
+            "y": 2658.85009765625,
+            "w": 1574.4000244140625,
+            "h": 314.6000061035156
+          }
+        }
+      ]
+    },
+    "/processos/novo": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/processos/novo",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_processos_novo.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/processos/lista": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/processos/lista",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_processos_lista.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/clientes/novo": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/clientes/novo",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_clientes_novo.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/clientes/lista": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/clientes/lista",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_clientes_lista.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/calendario": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/calendario",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_calendario.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/financeiro/contas": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/financeiro/contas",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_financeiro_contas.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/financeiro/receber": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/financeiro/receber",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_financeiro_receber.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/financeiro/pagar": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/financeiro/pagar",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_financeiro_pagar.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/modelos": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/modelos",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_modelos.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/modelos/lista": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/modelos/lista",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_modelos_lista.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/config": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/config",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_config.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/settings": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/settings",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_settings.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/usuarios": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/usuarios",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_usuarios.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/usuarios/lista": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/usuarios/lista",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_usuarios_lista.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/relatorios": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/relatorios",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_relatorios.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/dashboard": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/dashboard",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_dashboard.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/tarefas": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/tarefas",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_tarefas.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/atividades": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/atividades",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_atividades.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/documentos": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/documentos",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_documentos.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    },
+    "/arquivos": {
+      "name": "advcontroller",
+      "url": "https://app.advcontroller.com.br/arquivos",
+      "screenshot": "C:/Users/davi9/gubernajur/reverse-engineering/routes/_arquivos.png",
+      "title": "advcontroller",
+      "headings": [
+        "Painel",
+        "Criadas × concluídas",
+        "Conclusão de demandas",
+        "Demandas por status",
+        "Idade das demandas abertas",
+        "Produção por pessoa",
+        "Fila sem dono por função",
+        "Processos por fase",
+        "Tempo médio por fase",
+        "Processos por área",
+        "Processos por tipo",
+        "Novos processos",
+        "Novos clientes",
+        "Processos parados",
+        "Sem demanda aberta",
+        "Publicações recebidas"
+      ],
+      "forms": {},
+      "tables": [
+        {
+          "index": 0,
+          "columns": [
+            "Pessoa",
+            "Processos",
+            "Abertas",
+            "Vencidas",
+            "Concluídas"
+          ],
+          "rowCount": 1
+        }
+      ],
+      "buttons": [
+        "EscritórioPereira e Costa Advogados",
+        "ADadv.davipereira@gmail.comDono",
+        "Hoje",
+        "Ontem",
+        "Esta semana",
+        "Semana passada",
+        "Este mês",
+        "Mês passado",
+        "Este ano",
+        "Ano passado",
+        "Aplicar",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas"
+      ],
+      "inputs": [],
+      "cards": [
+        "OPERAÇÃOPainelPublicaçõesProcessosClientesNotificaçõesDemandasAgendaADMINISTRAÇÃOFinanceiroPlenoEqui",
+        "Prazos vencidos0Demandas em aberto",
+        "Vencem hoje0Atenção imediata",
+        "Próximos 7 dias0Semana atual",
+        "No prazo0Mais de 7 dias",
+        "Sem prazo0Abertas sem data",
+        "Sem responsável0Abertas sem dono",
+        "Travadas0Com bloqueio ativo",
+        "Triagem pendente0Publicações tratadas",
+        "OperaçãoCriadas × concluídasSem dados ainda"
+      ],
+      "links": [
+        {
+          "text": "",
+          "href": "/"
+        },
+        {
+          "text": "Painel",
+          "href": "/"
+        },
+        {
+          "text": "Publicações",
+          "href": "/inbox"
+        },
+        {
+          "text": "Processos",
+          "href": "/processos"
+        },
+        {
+          "text": "Clientes",
+          "href": "/clientes"
+        },
+        {
+          "text": "Notificações",
+          "href": "/notificacoes"
+        },
+        {
+          "text": "Demandas",
+          "href": "/kanban"
+        },
+        {
+          "text": "Agenda",
+          "href": "/agenda"
+        },
+        {
+          "text": "FinanceiroPleno",
+          "href": "/financeiro"
+        },
+        {
+          "text": "Equipe",
+          "href": "/equipe"
+        },
+        {
+          "text": "Integrações",
+          "href": "/integracoes"
+        },
+        {
+          "text": "Configurações",
+          "href": "/configuracoes"
+        },
+        {
+          "text": "Central de ajuda",
+          "href": "/central-de-ajuda"
+        },
+        {
+          "text": "Como usar",
+          "href": "/central-de-ajuda#painel"
+        }
+      ]
+    }
+  },
+  "screenshots": [],
+  "errors": []
+}

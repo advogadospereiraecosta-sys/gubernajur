@@ -1,0 +1,45 @@
+# ── Dependências ───────────────────────────────────────────────────────────
+node_modules/
+.pnpm-store/
+
+# ── Segredos ───────────────────────────────────────────────────────────────
+# Os *.example são templates e DEVEM ser versionados; os reais, nunca.
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.production.example
+
+# ── Saídas de build ────────────────────────────────────────────────────────
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Cache ──────────────────────────────────────────────────────────────────
+.turbo/
+.cache/
+coverage/
+
+# ── Cópia gerada do schema ─────────────────────────────────────────────────
+# A fonte única é prisma/schema.prisma na raiz. Esta cópia é recriada pelo
+# `npm run db:sync` porque o pnpm mantém stores separados por workspace e o
+# client precisa ser gerado de dentro de apps/web. Versionar as duas foi o que
+# fez os schemas divergirem e quebrou a integração Claude.
+apps/web/prisma/schema.prisma
+
+# ── Dados de execução ──────────────────────────────────────────────────────
+infra/backup/*.sql
+infra/backup/*.gz
+infra/caddy/caddy_data/
+infra/caddy/caddy_config/
+
+# ── Sistema e editor ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.vscode/
+.idea/

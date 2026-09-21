@@ -1,0 +1,38 @@
+{
+  "name": "gubernajur",
+  "version": "1.0.0",
+  "description": "Complete CNJ/DataJud Integration for Brazilian Courts - Surpasses Advcontroller",
+  "main": "server.js",
+  "bin": {
+    "gubernajur": "./cli.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "cli": "node cli.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "cnj",
+    "datajud",
+    "brazil",
+    "juridico",
+    "advocacia",
+    "processo",
+    "oab",
+    "tribunal",
+    "judiciario"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "5.22.0",
+    "cors": "^2.8.6",
+    "express": "^4.22.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "prisma": "5.22.0"
+  }
+}

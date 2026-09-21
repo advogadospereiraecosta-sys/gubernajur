@@ -1,0 +1,59 @@
+# Bloco para ACRESCENTAR ao Caddyfile do FLUXDCHAT, que é quem serve as portas
+# 80 e 443 desta VPS.
+#
+# Arquivo na VPS:  <raiz-do-fluxdchat>/infra/caddy/Caddyfile
+# Localize com:    docker inspect infra-caddy-1 --format '{{json .Mounts}}'
+#
+# NÃO substitua o arquivo: o bloco {$DOMAIN} que já está lá serve o
+# fluxdchat.com.br. Acrescente este ao final, preservando o existente.
+#
+# O container do Caddy roda em `network_mode: host`, então enxerga o loopback
+# do host — 127.0.0.1:3010 funciona direto, sem host.docker.internal.
+#
+# Depois de editar:
+#   docker exec infra-caddy-1 caddy validate --config /etc/caddy/Caddyfile
+#   docker exec infra-caddy-1 caddy reload   --config /etc/caddy/Caddyfile
+#
+# ATENÇÃO À DEPENDÊNCIA QUE ISSO CRIA: o gubernajur passa a depender do stack
+# do fluxdchat estar de pé. Derrubar o fluxdchat derruba o Caddy e, com ele,
+# o acesso ao gubernajur. Se os dois crescerem, vale mover o Caddy para um
+# stack próprio, independente dos dois.
+
+app.pereiraecostaadvogados.com.br {
+	encode zstd gzip
+
+	# O endpoint MCP é consumido pelo conector do Claude: resposta longa,
+	# sem buffer intermediário e com timeout folgado.
+	handle /mcp* {
+		reverse_proxy 127.0.0.1:3010 {
+			flush_interval -1
+			transport http {
+				read_timeout 300s
+			}
+		}
+	}
+
+	# Webhooks precisam chegar com o corpo intacto para a verificação HMAC.
+	handle /api/webhooks/* {
+		reverse_proxy 127.0.0.1:3010
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:3010
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	log {
+		output file /var/log/caddy/gubernajur.log {
+			roll_size 10MiB
+			roll_keep 5
+		}
+	}
+}

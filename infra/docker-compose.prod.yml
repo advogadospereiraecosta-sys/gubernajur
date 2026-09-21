@@ -1,0 +1,73 @@
+# Produção — app.pereiraecostaadvogados.com.br
+#
+# A VPS (147.79.81.96) JÁ RODA O FLUXDCHAT: um stack docker chamado `infra`
+# com postgres, redis, api (3001), web (3000) e um caddy em `network_mode:
+# host` que ocupa as portas 80 e 443. Há ainda Coolify (8000) e n8n (5678).
+#
+# Consequências para este arquivo:
+#   - NÃO sobe Caddy próprio: conflito de porta com o do fluxdchat.
+#   - A web usa 3010 e a api 3011 — 3000 e 3001 estão ocupadas.
+#   - O proxy é feito pelo Caddy do fluxdchat, com o bloco de
+#     infra/Caddyfile.site acrescentado ao Caddyfile dele.
+#
+# Diferenças em relação ao docker-compose.yml (que é de desenvolvimento):
+#   - Postgres e Redis NÃO expõem porta. Numa VPS, `ports: 5432:5432` publica
+#     o banco na internet.
+#   - A web escuta só em loopback: quem fala com o mundo é o Caddy.
+#   - Sem volume de código-fonte: a imagem construída é o que roda.
+#
+# Subir:
+#   docker compose -f docker-compose.yml -f infra/docker-compose.prod.yml up -d --build
+
+services:
+  db:
+    ports: []
+    environment:
+      POSTGRES_USER: gubernajur
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?defina DB_PASSWORD no .env}
+      POSTGRES_DB: gubernajur
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/backup:/backup
+
+  redis:
+    ports: []
+    command: redis-server --appendonly yes
+
+  api:
+    ports: []
+    volumes: []
+    environment:
+      DATABASE_URL: postgresql://gubernajur:${DB_PASSWORD}@db:5432/gubernajur
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET:?defina JWT_SECRET no .env}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
+      NODE_ENV: production
+
+  web:
+    # Só loopback, na 3010 — a 3000 é do fluxdchat. Como o Caddy da VPS roda
+    # em network_mode: host, ele alcança este endereço diretamente.
+    ports:
+      - "127.0.0.1:3010:3000"
+    volumes: []
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://gubernajur:${DB_PASSWORD}@db:5432/gubernajur
+      NEXT_PUBLIC_API_URL: http://api:3001
+      NEXT_PUBLIC_APP_URL: ${APP_URL:?defina APP_URL no .env}
+      NEXTAUTH_URL: ${APP_URL}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET:?defina NEXTAUTH_SECRET no .env}
+      JWT_SECRET: ${JWT_SECRET}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      AUTENTIQUE_API_TOKEN: ${AUTENTIQUE_API_TOKEN:-}
+      AUTENTIQUE_SANDBOX: ${AUTENTIQUE_SANDBOX:-false}
+      AUTENTIQUE_WEBHOOK_SECRET: ${AUTENTIQUE_WEBHOOK_SECRET:-}
+
+  # O compose de desenvolvimento define um nginx que não deve subir aqui:
+  # quem termina TLS nesta VPS é o Caddy que já está instalado.
+  nginx:
+    profiles: ["nunca"]
+
+volumes:
+  postgres_data:
+  redis_data:

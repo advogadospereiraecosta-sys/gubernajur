@@ -1,0 +1,931 @@
+// Gubernajur - Schema do Banco de Dados
+// Multi-tenant com Row-Level Security
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// TENANT / ESCRITÓRIO
+// ============================================
+
+model Escritorio {
+  id        String   @id @default(uuid())
+  nome      String
+  cnpj      String?  @unique
+  logo      String?
+  telefone  String?
+  email     String?
+  endereco  String?
+
+  // Plano e Billing
+  plano     Plano    @default(BASICO)
+  ativo     Boolean  @default(true)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relacionamentos
+  usuarios       Usuario[]
+  processos      Processo[]
+  clientes       Cliente[]
+  demandas       Demanda[]
+  audiencias     Audiencia[]
+  prazos         Prazo[]
+  financeiro     Financeiro[]
+  publicacoes    Publicacao[]
+  documentos     Documento[]
+  integracoes    Integracao[]
+  configuracoes  Configuracao[]
+  convites       Convite[]
+  logs           LogAtividade[]
+  contratosBancarios ContratoBancario[]
+  claudeConexoes ClaudeConexao[]
+  apiKeys        ApiKey[]
+}
+
+enum Plano {
+  BASICO
+  PROFISSIONAL
+  EMPRESARIAL
+}
+
+// ============================================
+// USUÁRIOS / AUTENTICAÇÃO
+// ============================================
+
+model Usuario {
+  id          String   @id @default(uuid())
+  email       String
+  senhaHash   String
+  nome        String
+  avatar      String?
+
+  // Função e Perfil
+  funcao      Funcao   @default(ADVOGADO)
+  perfil      Perfil   @default(BASICO)
+  telefone    String?
+
+  // Status
+  ativo       Boolean  @default(true)
+  ultimoLogin DateTime?
+
+  // Relacionamentos
+  escritorioId String
+  escritorio   Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  demandas     Demanda[]
+  audiencias   Audiencia[]  @relation("ResponsavelAudiencia")
+  comentarios  Comentario[]
+  logs         LogAtividade[]
+  claudeConexoes ClaudeConexao[]
+  apiKeys      ApiKey[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([email, escritorioId])
+  @@index([escritorioId])
+}
+
+enum Funcao {
+  ADMIN
+  ADVOGADO
+  ESTAGIARIO
+  SECRETARIO
+  PARCEIRO
+}
+
+enum Perfil {
+  ADMIN        // Acesso total
+  ADVOGADO     // Acesso completo aos módulos
+  BASICO       // Acesso limitado
+}
+
+// ============================================
+// CLIENTES / PARTES
+// ============================================
+
+model Cliente {
+  id          String     @id @default(uuid())
+  tipoPessoa  TipoPessoa
+  nome        String
+  cpfCnpj     String?
+  rgIe        String?
+
+  // Contato
+  email       String?
+  telefone    String?
+  celular     String?
+  endereco    String?
+  bairro      String?
+  cidade      String?
+  estado      String?    @db.VarChar(2)
+  cep         String?
+
+  // Dados complementares
+  profissao   String?
+  nacionalidade String?  @default("brasileira")
+  estadoCivil String?
+  /// Renda familiar mensal — decide gratuidade e declaração de hipossuficiência.
+  rendaFamiliar Decimal? @db.Decimal(15, 2)
+  naturezaJuridica String? // Para PJ
+  inscricaoMunicipal String?
+
+  // Observações
+  observacoes String?    @db.Text
+
+  // Relacionamentos
+  escritorioId String
+  escritorio   Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  processos    Processo[]
+  financeiro   Financeiro[]
+  documentos   Documento[]
+  contratosBancarios ContratoBancario[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([escritorioId])
+  @@index([cpfCnpj])
+}
+
+enum TipoPessoa {
+  FISICA
+  JURIDICA
+}
+
+// ============================================
+// PROCESSOS
+// ============================================
+
+model Processo {
+  id            String          @id @default(uuid())
+  numeroCNJ     String          @unique
+  escritorioId  String
+  escritorio    Escritorio      @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  // Dados processuais
+  clienteId     String
+  cliente       Cliente         @relation(fields: [clienteId], references: [id])
+
+  orgaoJulgador String
+  tribunal      String
+  instancia     Int             @default(1)
+  classe        String
+  area          AreaJuridica
+  fase          FaseProcessual  @default(DISTRIBUIDO)
+  valorCausa   Decimal?        @db.Decimal(15, 2)
+
+  // Datas importantes
+  dataAjuizamento DateTime
+  dataDistribuicao DateTime
+
+  // Custos e honorários
+  honorarios    Decimal?        @db.Decimal(15, 2)
+  custas        Decimal?        @db.Decimal(15, 2)
+
+  // Configurações
+  segredoJustica Boolean        @default(false)
+  preferencia   String?
+
+  // Relacionamentos
+  demandas      Demanda[]
+  audiencias     Audiencia[]
+  prazos         Prazo[]
+  publicacoes    Publicacao[]
+  documentos     Documento[]
+
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  @@index([escritorioId])
+  @@index([clienteId])
+  @@index([numeroCNJ])
+  @@index([fase])
+}
+
+enum AreaJuridica {
+  CIVEL
+  PENAL
+  TRABALHISTA
+  TRIBUTARIO
+  PREVIDENCIARIO
+  ELEITORAL
+  MILITAR
+  AMBIENTAL
+  CONSUMIDOR
+  IMOBILIARIO
+  FAMILIA
+  SUCESSOES
+  COMERCIAL
+  CONSTITUCIONAL
+  DIGITAL
+  INTERNACIONAL
+}
+
+enum FaseProcessual {
+  DISTRIBUIDO
+  CADASTRADO
+  CITACAO
+  AUDIENCIA_CITACAO
+  CONTESTACAO
+  INSTRUCAO
+  MEMORIAIS
+  CONCLUSAO
+  SENTENCA
+  RECURSO
+  EXECUCAO
+  ARQUIVADO
+}
+
+// ============================================
+// DEMANDAS / TAREFAS
+// ============================================
+
+model Demanda {
+  id            String          @id @default(uuid())
+  titulo        String
+  descricao     String?         @db.Text
+
+  escritorioId  String
+  escritorio    Escritorio      @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  processoId    String?
+  processo      Processo?       @relation(fields: [processoId], references: [id], onDelete: SetNull)
+
+  responsavelId String?
+  responsavel   Usuario?        @relation(fields: [responsavelId], references: [id], onDelete: SetNull)
+
+  // Status e Coluna
+  status        StatusDemanda   @default(A_FAZER)
+  coluna        String          @default("a_fazer")
+
+  // Dados temporais
+  prazo         DateTime?
+  duracaoEstimada Int?          // Em minutos
+  prioridade    Prioridade      @default(NORMAL)
+  concluidaEm   DateTime?
+
+  // Tags
+  tags          String[]
+
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  comentarios   Comentario[]
+  anexos        Anexo[]
+
+  @@index([escritorioId])
+  @@index([responsavelId])
+  @@index([processoId])
+  @@index([prazo])
+}
+
+enum StatusDemanda {
+  A_FAZER
+  EM_ANDAMENTO
+  EM_REVISAO
+  CONCLUIDO
+  CANCELADO
+}
+
+enum Prioridade {
+  BAIXA
+  NORMAL
+  ALTA
+  URGENTE
+}
+
+// ============================================
+// AGENDA / AUDIÊNCIAS E PRAZOS
+// ============================================
+
+model Audiencia {
+  id          String        @id @default(uuid())
+  processoId String
+  processo   Processo      @relation(fields: [processoId], references: [id], onDelete: Cascade)
+
+  escritorioId String
+  escritorio  Escritorio   @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  tipo        TipoAudiencia
+  dataHora    DateTime
+  duracao     Int?         // Em minutos
+  local       String?
+  tipoLocal   TipoLocal    @default(PRESENCIAL)
+
+  // Participantes
+  pauta       String?
+  observacoes String?      @db.Text
+
+  responsavelId String?
+  responsavel  Usuario?    @relation("ResponsavelAudiencia", fields: [responsavelId], references: [id], onDelete: SetNull)
+
+  // Notificações
+  lembreteEnviado Boolean  @default(false)
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([escritorioId])
+  @@index([processoId])
+  @@index([dataHora])
+}
+
+enum TipoAudiencia {
+  INSTRUCAO
+  CONCILIACAO
+  JULGAMENTO
+  SESSAO
+  OITIVA
+  CUSTODIA
+  UNA
+  INQUERITO
+  ESPECIAL
+  OUTRA
+}
+
+enum TipoLocal {
+  PRESENCIAL
+  VIDEOCONFERENCIA
+  HIBRIDO
+}
+
+model Prazo {
+  id            String      @id @default(uuid())
+  processoId    String
+  processo      Processo    @relation(fields: [processoId], references: [id], onDelete: Cascade)
+
+  escritorioId  String
+  escritorio    Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  tipo          TipoPrazo
+  descricao     String
+
+  dataInicial   DateTime?
+  dataFinal     DateTime
+
+  status        StatusPrazo @default(ATIVO)
+  concluidoEm   DateTime?
+
+  responsavelId String?
+  responsavel   String?
+
+  lembretes     DateTime[]
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([escritorioId])
+  @@index([processoId])
+  @@index([dataFinal])
+}
+
+enum TipoPrazo {
+  CONTESTACAO
+  RECURSO
+  MANIFESTACAO
+  PRAZO_SEGURO
+  PERICIA
+  AUDIENCIA
+  SESSAO_JULGAMENTO
+  PRAZO_LEGAL
+  OUTRO
+}
+
+enum StatusPrazo {
+  ATIVO
+  VENCIDO
+  CONCLUIDO
+  SUSPENSO
+  CANCELADO
+}
+
+// ============================================
+// FINANCEIRO
+// ============================================
+
+model Financeiro {
+  id            String             @id @default(uuid())
+  escritorioId  String
+  escritorio   Escritorio          @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  clienteId    String?
+  cliente      Cliente?           @relation(fields: [clienteId], references: [id], onDelete: SetNull)
+
+  processoId   String?
+
+  tipo         TipoLancamento
+  categoria    CategoriaFinanceira
+  descricao    String
+  valor        Decimal            @db.Decimal(15, 2)
+
+  // Datas
+  dataVencimento DateTime
+  dataPagamento  DateTime?
+
+  // Status
+  status       StatusFinanceiro   @default(PENDENTE)
+
+  // Juros e multa
+  juros        Decimal?           @db.Decimal(15, 2)
+  multa        Decimal?           @db.Decimal(15, 2)
+
+  // Forma de pagamento
+  formaPagamento FormaPagamento?
+
+  observacoes  String?            @db.Text
+  comprovante  String?            // URL do arquivo
+
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  @@index([escritorioId])
+  @@index([dataVencimento])
+  @@index([status])
+}
+
+enum TipoLancamento {
+  RECEITA
+  DESPESA
+}
+
+enum CategoriaFinanceira {
+  // Receitas
+  HONORARIOS
+  CUSTAS
+  SUCUMBENCIA
+  HONORARIOS_SUCUMBENCIAIS
+  ACORDO
+  OUTRA_RECEITA
+
+  // Despesas
+  SALARIO
+  ENERGIA
+  INTERNET
+  ALUGUEL
+  SOFTWARE
+  CUSTAS_CARTORARIAS
+  PERICIA
+  DESPESA_JURIDICA
+  IMPOSTOS
+  CONTABILIDADE
+  MARKETING
+  TREINAMENTO
+  VIAGEM
+  OUTRA_DESPESA
+}
+
+enum StatusFinanceiro {
+  PENDENTE
+  PAGO
+  VENCIDO
+  CANCELADO
+  PARCELADO
+}
+
+enum FormaPagamento {
+  DINHEIRO
+  PIX
+  TRANSFERENCIA
+  BOLETO
+  CARTAO_DEBITO
+  CARTAO_CREDITO
+  DEBITO_AUTOMATICO
+  CHEQUE
+}
+
+// ============================================
+// PUBLICAÇÕES / INBOX
+// ============================================
+
+model Publicacao {
+  id            String   @id @default(uuid())
+  processoId    String
+  processo      Processo @relation(fields: [processoId], references: [id], onDelete: Cascade)
+
+  escritorioId  String
+  escritorio   Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  tribunal      String
+  tipo          String   // Despacho, Sentença, etc.
+  conteudo      String   @db.Text
+  dataPublicacao DateTime
+
+  // Metadados
+  paginaDiario  Int?
+  hash          String?  // Para deduplicação
+
+  // Triagem manual
+  lida          Boolean  @default(false)
+  triadaEm      DateTime?
+
+  // Triagem IA
+  urgencia      Urgencia      @default(NORMAL)
+  classificacao String?       // CONTESTACAO, RECURSO, MANIFESTACAO, etc.
+  itensExtraidos Json?       // Array de AcaoExtraida
+  resumenIA     String?       @db.VarChar(500)
+  confianzaIA  Float?        // 0.0 - 1.0
+  tarefaCriadaId String?     // ID da demanda/prazo criada automaticamente
+  parserTryAt   DateTime?    // Quando tentou parse IA (pra não retentar)
+
+  observacoes   String?  @db.Text
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([escritorioId])
+  @@index([processoId])
+  @@index([dataPublicacao])
+  @@index([hash])
+  @@index([urgencia])
+  @@index([lida])
+}
+
+enum Urgencia {
+  URGENTE  // Prazo < 5 dias úteis ou intimação de decisão
+  ALTA     // Prazo 5-10 dias úteis
+  NORMAL   // Prazo > 10 dias úteis
+  BAIXA    // Sem prazo processual
+}
+
+// ============================================
+// DOCUMENTOS / ANEXOS
+// ============================================
+
+model Documento {
+  id          String    @id @default(uuid())
+  titulo      String
+  tipo        String    // PDF, DOC, etc.
+
+  escritorioId String
+  escritorio  Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  clienteId   String?
+  cliente     Cliente? @relation(fields: [clienteId], references: [id], onDelete: SetNull)
+
+  processoId  String?
+  processo    Processo? @relation(fields: [processoId], references: [id], onDelete: SetNull)
+
+  url         String    // Path no storage
+  tamanho     Int?      // Em bytes
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([escritorioId])
+  @@index([clienteId])
+  @@index([processoId])
+}
+
+model Anexo {
+  id          String    @id @default(uuid())
+  demandaId   String
+  demanda     Demanda   @relation(fields: [demandaId], references: [id], onDelete: Cascade)
+
+  titulo      String
+  tipo        String
+  url         String
+  tamanho     Int?
+
+  createdAt   DateTime  @default(now())
+
+  @@index([demandaId])
+}
+
+model Comentario {
+  id          String    @id @default(uuid())
+  demandaId   String
+  demanda     Demanda   @relation(fields: [demandaId], references: [id], onDelete: Cascade)
+
+  usuarioId   String
+  usuario     Usuario   @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  conteudo    String    @db.Text
+
+  createdAt   DateTime  @default(now())
+
+  @@index([demandaId])
+}
+
+// ============================================
+// INTEGRAÇÕES
+// ============================================
+
+model Integracao {
+  id          String    @id @default(uuid())
+  escritorioId String
+  escritorio  Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  tipo        TipoIntegracao
+  nome        String
+  status      StatusIntegracao @default(INATIVA)
+
+  // Configurações (JSON)
+  config      Json?     // API keys, tokens, etc.
+
+  // Timestamps
+  ultimaSincronizacao DateTime?
+  criadoEm   DateTime  @default(now())
+  atualizadoEm DateTime @updatedAt
+
+  @@index([escritorioId])
+}
+
+enum TipoIntegracao {
+  TJRN
+  TJSP
+  TJMG
+  TJRJ
+  TJPB
+  DATAJUD
+  GOOGLE_CALENDAR
+  EMAIL
+  WHATSAPP
+  CLAUDE
+}
+
+enum StatusIntegracao {
+  ATIVA
+  INATIVA
+  ERRO
+  PENDENTE
+}
+
+// ============================================
+// CONFIGURAÇÕES
+// ============================================
+
+model Configuracao {
+  id          String    @id @default(uuid())
+  escritorioId String   @unique
+  escritorio  Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  // Notificações
+  notifEmail  Boolean  @default(true)
+  notifPush   Boolean  @default(true)
+
+  // Kanban
+  colunasKanban Json?   // Configuração das colunas
+
+  // Tema
+  tema        String    @default("system") // light, dark, system
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// ============================================
+// CONVITES E LOGS
+// ============================================
+
+model Convite {
+  id          String    @id @default(uuid())
+  escritorioId String
+  escritorio  Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  email       String
+  funcao      Funcao
+  perfil      Perfil
+
+  token       String    @unique
+  expiresAt   DateTime
+  usadoEm     DateTime?
+
+  createdAt   DateTime  @default(now())
+
+  @@index([email])
+  @@index([token])
+}
+
+model LogAtividade {
+  id          String    @id @default(uuid())
+  escritorioId String
+  escritorio  Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  usuarioId   String?
+  usuario     Usuario?  @relation(fields: [usuarioId], references: [id], onDelete: SetNull)
+
+  acao        String    // CREATE, UPDATE, DELETE
+  modulo      String    // processo, cliente, demanda, etc.
+  registroId  String
+
+  dadosAnteriores Json?
+  dadosNovos     Json?
+
+  ip          String?
+  userAgent   String?
+
+  createdAt   DateTime  @default(now())
+
+  @@index([escritorioId])
+  @@index([createdAt])
+}
+
+// ============================================
+// CLAUDE / MCP
+// ============================================
+
+model ClaudeConexao {
+  id           String     @id @default(uuid())
+  escritorioId String
+  escritorio   Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  usuarioId    String
+  usuario      Usuario    @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  // Token de identificacao opcional para auditoria
+  userAgent    String?
+
+  createdAt    DateTime   @default(now())
+  lastSeenAt   DateTime?
+
+  @@unique([escritorioId, usuarioId])
+  @@index([escritorioId])
+}
+
+// API Key para integracoes externas (n8n, Claude Code, scripts)
+model ApiKey {
+  id           String     @id @default(uuid())
+  escritorioId String
+  escritorio   Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  usuarioId    String?    // null = chave do escritorio; setada = chave pessoal
+  usuario      Usuario?   @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  nome         String
+  hash         String     // bcrypt do token completo
+  prefixo      String     // primeiros 8 chars do token (para exibicao)
+  ultimos4     String
+  scopes       String[]   @default([])
+
+  createdAt    DateTime   @default(now())
+  lastUsedAt   DateTime?
+  revokedAt    DateTime?
+
+  @@index([escritorioId])
+  @@index([hash])
+}
+
+// ============================================
+// PRODUTO: REVISIONAL DE FINANCIAMENTO DE VEÍCULO
+// ============================================
+
+/// Contrato bancário submetido a análise revisional.
+/// Os campos financeiros são extraídos da carta-resumo de CET ou da CCB.
+model ContratoBancario {
+  id           String     @id @default(uuid())
+  protocolo    String     @unique // REV-2026-0001
+
+  escritorioId String
+  escritorio   Escritorio @relation(fields: [escritorioId], references: [id], onDelete: Cascade)
+
+  clienteId    String
+  cliente      Cliente    @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+
+  // Identificação
+  banco           String
+  bancoCnpj       String?
+  numeroContrato  String
+  dataContrato    DateTime
+  dataPrimeiroVencimento DateTime?
+
+  // Bem financiado
+  veiculoDescricao   String
+  veiculoValorAVista Decimal @db.Decimal(15, 2)
+  valorEntrada       Decimal @db.Decimal(15, 2)
+  /// Campo F.6 da carta-resumo: valor total financiado COM impostos.
+  /// NÃO confundir com o preço do veículo nem com o subtotal sem impostos.
+  valorFinanciado    Decimal @db.Decimal(15, 2)
+
+  // Condições
+  totalParcelas   Int
+  parcelasPagas   Int      @default(0)
+  valorParcela    Decimal  @db.Decimal(15, 2)
+  taxaJurosMensal Decimal  @db.Decimal(8, 4)
+  taxaJurosAnual  Decimal? @db.Decimal(8, 4)
+  cetMensal       Decimal? @db.Decimal(8, 4)
+  cetAnual        Decimal? @db.Decimal(8, 4)
+
+  // Veículo dado em troca — define a tese da tarifa de avaliação
+  veiculoTrocaDescricao String?
+  avaliacaoRealizadaPor AutorAvaliacao @default(NAO_SABE)
+  recebeuLaudoAvaliacao Boolean?
+
+  // Situação
+  situacaoContrato   SituacaoContrato   @default(EM_CURSO)
+  situacaoPagamento  SituacaoPagamento  @default(EM_DIA)
+  parcelasEmAtraso   Int?
+  querConsignar      Boolean            @default(false)
+  objetivoBuscado    String?            @db.Text
+  relatoFatos        String?            @db.Text
+
+  encargos EncargoContratual[]
+  analises AnaliseRevisional[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([escritorioId])
+  @@index([clienteId])
+  @@index([protocolo])
+}
+
+/// Cada rubrica cobrada no contrato, com a redação original do banco.
+/// A redação importa: é dela que a classificação da tese é derivada.
+model EncargoContratual {
+  id         String           @id @default(uuid())
+  contratoId String
+  contrato   ContratoBancario @relation(fields: [contratoId], references: [id], onDelete: Cascade)
+
+  rubrica    String  // exatamente como consta do contrato
+  valor      Decimal @db.Decimal(15, 2)
+  financiado Boolean @default(true)
+
+  @@index([contratoId])
+}
+
+/// Resultado de uma análise. Um contrato pode ter várias ao longo do tempo
+/// (reanálise após novos documentos), e o histórico é preservado.
+model AnaliseRevisional {
+  id         String           @id @default(uuid())
+  contratoId String
+  contrato   ContratoBancario @relation(fields: [contratoId], references: [id], onDelete: Cascade)
+
+  // GATE 1 — a prestação recalculada tem de reproduzir a do contrato
+  prestacaoRecalculada Decimal @db.Decimal(15, 2)
+  divergenciaGate1     Decimal @db.Decimal(15, 2)
+  gate1Aprovado        Boolean
+
+  // Taxa média do Bacen, com rastro da consulta
+  bacenSerie        Int      @default(25471)
+  bacenCompetencia  String   // MM/AAAA
+  bacenTaxaMensal   Decimal  @db.Decimal(8, 4)
+  bacenConsultadoEm DateTime
+  bacenFonte        String   @db.Text
+
+  // Decisão
+  caminho            CaminhoProcessual
+  fundamentoDecisao  String   @db.Text
+  teses              String[] // teses ligadas
+  tesesDescartadas   Json     // [{ tese, motivo }]
+  pedeGratuidade     Boolean
+  pedeTutela         Boolean
+  exigeDecisaoHumana Boolean  @default(false)
+  alertas            String[]
+
+  // Cálculo — cenário 1 (só revisão da taxa)
+  prestacaoCorreta   Decimal @db.Decimal(15, 2)
+  diferencaPrestacao Decimal @db.Decimal(15, 2)
+  pagoAMaior         Decimal @db.Decimal(15, 2)
+  reducaoSaldo       Decimal @db.Decimal(15, 2)
+  beneficioTotal     Decimal @db.Decimal(15, 2)
+
+  // Cálculo — cenário 2 (taxa + expurgo dos encargos abusivos)
+  encargosExpurgados     Decimal? @db.Decimal(15, 2)
+  beneficioComExpurgo    Decimal? @db.Decimal(15, 2)
+
+  // Contratação
+  autentiqueDocumentoId String?
+  autentiqueLink        String?
+  assinadoEm            DateTime?
+
+  criadoPor String?
+  createdAt DateTime @default(now())
+
+  @@index([contratoId])
+}
+
+enum AutorAvaliacao {
+  BANCO
+  LOJA
+  NAO_SABE
+  NAO_HOUVE
+}
+
+enum SituacaoContrato {
+  EM_CURSO
+  QUITADO
+}
+
+enum SituacaoPagamento {
+  EM_DIA
+  ATRASADO
+  NEGATIVADO
+  BUSCA_APREENSAO
+}
+
+enum CaminhoProcessual {
+  A_REVISIONAL_REPETICAO
+  B_REVISIONAL_TUTELA
+  C_REVISIONAL_CONSIGNACAO
+  D_REPETICAO_PURA
+}
