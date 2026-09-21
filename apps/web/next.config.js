@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Standalone output for minimal Docker production deploy
+  output: 'standalone',
+
   // Experimental features
   experimental: {
     serverComponentsExternalPackages: ['@prisma/client'],
