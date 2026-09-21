@@ -6,29 +6,24 @@
 
 ---
 
-## 0. Versionamento — resolvido localmente, falta o remoto
+## 0. Versionamento — concluído
 
-O `gubernajur` **passou a ser repositório git** em 21/09/2026.
+O `gubernajur` passou a ser repositório git e tem remoto privado desde
+21/09/2026.
+
+**https://github.com/advogadospereiraecosta-sys/gubernajur** · branch `master`
 
 ```
-commit  69f6d54 · 182 arquivos · 6,6 MB
+182 arquivos · 6,6 MB
 ```
 
 O `.gitignore` deixa de fora os dois arquivos com segredos reais (`.env` na
-raiz e `apps/web/.env.local`, ambos confirmados como não rastreados), os
-`node_modules`, as saídas de build e a cópia gerada de
-`apps/web/prisma/schema.prisma` — versionar essa cópia foi o que fez os dois
-schemas divergirem (ver §7).
+raiz e `apps/web/.env.local`) — ausência confirmada tanto no índice local
+quanto na API do GitHub depois do push. Também ficam fora `node_modules`, as
+saídas de build e a cópia gerada de `apps/web/prisma/schema.prisma`, cuja
+duplicação foi o que fez os schemas divergirem (ver §7).
 
-**Ainda não há remoto.** Enquanto não houver, o código continua existindo só
-nesta máquina, e o `DEPLOY.md` segue sem URL para o `git clone`:
-
-```bash
-cd ~/gubernajur
-gh repo create advogadospereiraecosta-sys/gubernajur --private --source=. --push
-```
-
-O `pereiraecosta-site-repo` já tem remoto.
+O `DEPLOY.md` já pode usar a URL real no `git clone`.
 
 ---
 
@@ -231,7 +226,6 @@ ligava em qualquer caminho B ou C, o que contrariava o Tema 972, item 3.
 
 ### 6.2 Fechar o que está pendente de commit
 
-- **gubernajur: criar o repositório remoto (§0)** — o local já está versionado.
 - **PR #2** do site está aberto, não mergeado.
 - `lib/revisional/`, `docs/revisional/`, `docs/ESTADO-DO-PROJETO.md` e
   `lib/autentique.ts` do site: não commitados.

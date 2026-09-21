@@ -67,7 +67,7 @@ escuta apenas em loopback. Nada novo fica exposto à internet.
 ## 3. Código e segredos
 
 ```bash
-git clone <URL-DO-REPOSITORIO> /opt/gubernajur
+git clone https://github.com/advogadospereiraecosta-sys/gubernajur.git /opt/gubernajur
 cd /opt/gubernajur
 
 cp .env.production.example .env
