@@ -47,8 +47,6 @@ services:
       REDIS_URL: redis://redis:6379
       JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key}
       NODE_ENV: production
-    ports:
-      - "3001:3001"
     depends_on:
       db:
         condition: service_healthy
@@ -68,8 +66,6 @@ services:
     environment:
       NEXT_PUBLIC_API_URL: http://api:3001
       NEXT_PUBLIC_APP_URL: http://localhost:3000
-    ports:
-      - "3000:3000"
     depends_on:
       - api
     volumes:
