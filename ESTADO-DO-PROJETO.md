@@ -6,37 +6,29 @@
 
 ---
 
-## 0. RISCO IMEDIATO — leia antes de tudo
+## 0. Versionamento — resolvido localmente, falta o remoto
 
-**A pasta `gubernajur` NÃO é repositório git.** Sem `.git`, sem `.gitignore`,
-sem remoto. São 175 arquivos-fonte, incluindo tudo que foi construído nesta
-sessão, existindo **apenas no disco desta máquina**. Uma formatação, um comando
-errado ou um HD com defeito apaga o trabalho inteiro.
+O `gubernajur` **passou a ser repositório git** em 21/09/2026.
 
-Isso também bloqueia o `DEPLOY.md`, que manda `git clone <URL-DO-REPOSITORIO>` —
-não existe URL.
+```
+commit  69f6d54 · 182 arquivos · 6,6 MB
+```
 
-Resolver antes de qualquer outra coisa:
+O `.gitignore` deixa de fora os dois arquivos com segredos reais (`.env` na
+raiz e `apps/web/.env.local`, ambos confirmados como não rastreados), os
+`node_modules`, as saídas de build e a cópia gerada de
+`apps/web/prisma/schema.prisma` — versionar essa cópia foi o que fez os dois
+schemas divergirem (ver §7).
+
+**Ainda não há remoto.** Enquanto não houver, o código continua existindo só
+nesta máquina, e o `DEPLOY.md` segue sem URL para o `git clone`:
 
 ```bash
 cd ~/gubernajur
-
-# .gitignore PRIMEIRO — sem ele, 188 MB de node_modules entram no commit
-printf '%s\n' 'node_modules/' '.next/' 'dist/' '.env' '.env.local' '*.log' '.turbo/' 'apps/web/prisma/schema.prisma' > .gitignore
-
-git init
-git add .
-git commit -m "Estado do projeto em 21/09/2026: produto revisional integrado"
-
-# Depois crie o repositório remoto e envie
 gh repo create advogadospereiraecosta-sys/gubernajur --private --source=. --push
 ```
 
-A linha `apps/web/prisma/schema.prisma` no `.gitignore` é proposital: aquele
-arquivo é **cópia gerada** da raiz (ver §7).
-
-O `pereiraecosta-site-repo` está versionado e com remoto — o risco é só do
-gubernajur.
+O `pereiraecosta-site-repo` já tem remoto.
 
 ---
 
@@ -239,7 +231,7 @@ ligava em qualquer caminho B ou C, o que contrariava o Tema 972, item 3.
 
 ### 6.2 Fechar o que está pendente de commit
 
-- **gubernajur: versionar (§0)** — o mais urgente de todos.
+- **gubernajur: criar o repositório remoto (§0)** — o local já está versionado.
 - **PR #2** do site está aberto, não mergeado.
 - `lib/revisional/`, `docs/revisional/`, `docs/ESTADO-DO-PROJETO.md` e
   `lib/autentique.ts` do site: não commitados.
