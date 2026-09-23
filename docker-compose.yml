@@ -52,9 +52,6 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    volumes:
-      - ./apps/api:/app
-      - /app/node_modules
 
   # Web Frontend (Next.js)
   web:
@@ -68,10 +65,6 @@ services:
       NEXT_PUBLIC_APP_URL: http://localhost:3000
     depends_on:
       - api
-    volumes:
-      - ./apps/web:/app
-      - /app/node_modules
-      - /app/.next
 
   # Nginx Reverse Proxy
   nginx:

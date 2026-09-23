@@ -1,0 +1,16 @@
+# Desenvolvimento local — bind mounts para hot-reload
+#
+# Usar com: docker compose -f docker-compose.yml -f infra/docker-compose.dev.yml up -d
+# (ou simplesmente docker compose up -d sem este arquivo — mas aí sem hot-reload)
+
+services:
+  api:
+    volumes:
+      - ./apps/api:/app
+      - /app/node_modules
+
+  web:
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
