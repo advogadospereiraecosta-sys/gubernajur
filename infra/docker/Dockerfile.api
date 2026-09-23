@@ -42,11 +42,16 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 gubernajur
 
-# Copy built application
+# Copy built application and install production dependencies
 COPY --from=builder /app/apps/api/dist ./dist
 COPY --from=builder /app/apps/api/package.json ./
-COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/pnpm-lock.yaml ./
+COPY --from=builder /app/pnpm-workspace.yaml ./
+COPY --from=builder /app/package.json ./
 COPY --from=builder /app/prisma ./prisma
+
+RUN npm install -g pnpm@9.1.0 && \
+    pnpm install --frozen-lockfile --prod
 
 USER gubernajur
 
