@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Standalone output for minimal Docker production deploy
-  output: 'standalone',
+  // output: 'standalone' (desativado - incompatível com pnpm workspace)
 
   // Experimental features
   experimental: {
@@ -50,3 +50,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
