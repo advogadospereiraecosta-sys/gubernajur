@@ -13,6 +13,15 @@ export class UsuarioController {
     return this.usuario.findAll(escritorioId);
   }
 
+  @Patch('me/senha')
+  alterarMinhaSenha(
+    @CurrentUser('id') userId: string,
+    @CurrentUser('escritorioId') escritorioId: string,
+    @Body() body: { senhaAtual: string; senhaNova: string },
+  ) {
+    return this.usuario.alterarSenha(escritorioId, userId, body.senhaAtual, body.senhaNova);
+  }
+
   @Get('me')
   me(@CurrentUser('id') userId: string, @CurrentUser('escritorioId') escritorioId: string) {
     return this.usuario.findById(escritorioId, userId);

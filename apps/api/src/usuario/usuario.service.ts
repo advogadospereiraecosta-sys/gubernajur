@@ -53,6 +53,27 @@ export class UsuarioService {
     return this.findById(escritorioId, id);
   }
 
+  async alterarSenha(escritorioId: string, userId: string, senhaAtual: string, senhaNova: string) {
+    if (!senhaNova || senhaNova.length < 6) {
+      throw new BadRequestException('A nova senha precisa de pelo menos 6 caracteres');
+    }
+
+    const user = await this.prisma.usuario.findFirst({
+      where: { id: userId, escritorioId },
+    });
+    if (!user) throw new NotFoundException('Usuário não encontrado');
+
+    const senhaAtualValida = await bcrypt.compare(senhaAtual, user.senhaHash);
+    if (!senhaAtualValida) {
+      throw new BadRequestException('Senha atual incorreta');
+    }
+
+    const senhaHash = await bcrypt.hash(senhaNova, 12);
+    await this.prisma.usuario.update({ where: { id: userId }, data: { senhaHash } });
+
+    return { ok: true };
+  }
+
   async delete(escritorioId: string, id: string) {
     return this.prisma.usuario.update({
       where: { id, escritorioId },

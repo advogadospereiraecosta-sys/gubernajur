@@ -38,16 +38,28 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         email: { label: 'Email', type: 'email', placeholder: 'seu@email.com' },
         password: { label: 'Senha', type: 'password' },
+        escritorio: { label: 'Escritório (CNPJ)', type: 'text', placeholder: 'opcional' },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+        const email = credentials?.email?.trim().toLowerCase()
+        const senha = credentials?.password
+        const cnpj = credentials?.escritorio?.trim()
+
+        if (!email || !senha) {
           throw new Error('Email e senha são obrigatórios')
         }
 
-        const user = await prisma.usuario.findFirst({
+        // O schema permite @@unique([email, escritorioId]) — o mesmo email pode
+        // existir em vários escritórios. Buscamos todos os candidatos e validamos
+        // a senha contra cada um, em vez de pegar o primeiro (findFirst) e arriscar
+        // entrar na conta errada.
+        const candidatos = await prisma.usuario.findMany({
           where: {
-            email: credentials.email,
+            email,
             ativo: true,
+            escritorio: cnpj
+              ? { cnpj: { contains: cnpj.replace(/\D/g, ''), mode: 'insensitive' as const } }
+              : undefined,
           },
           include: {
             escritorio: {
@@ -60,21 +72,32 @@ export const authOptions: NextAuthOptions = {
           },
         })
 
-        if (!user) {
+        if (candidatos.length === 0) {
           throw new Error('Email ou senha incorretos')
         }
 
+        const validos: typeof candidatos = []
+        for (const candidato of candidatos) {
+          if (await bcrypt.compare(senha, candidato.senhaHash)) {
+            validos.push(candidato)
+          }
+        }
+
+        if (validos.length === 0) {
+          throw new Error('Email ou senha incorretos')
+        }
+
+        if (validos.length > 1) {
+          throw new Error(
+            'Este email está registado em mais de um escritório. Informe o CNPJ do escritório para entrar.'
+          )
+        }
+
+        const user = validos[0]
+
+        // Verificado só depois da senha, para não revelar que a conta existe.
         if (!user.escritorio.ativo) {
           throw new Error('Escritório desativado. Contate o suporte.')
-        }
-
-        const isPasswordValid = await bcrypt.compare(
-          credentials.password,
-          user.senhaHash
-        )
-
-        if (!isPasswordValid) {
-          throw new Error('Email ou senha incorretos')
         }
 
         // Atualizar último login

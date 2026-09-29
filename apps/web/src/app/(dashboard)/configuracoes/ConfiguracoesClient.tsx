@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Save, Building, User } from 'lucide-react'
+import { Save, Building, User, KeyRound } from 'lucide-react'
 import { toast } from 'sonner'
 import { PageHeader } from '@/components/PageHeader'
 
@@ -31,7 +31,7 @@ export function ConfiguracoesClient({
   usuario: Usuario
 }) {
   const router = useRouter()
-  const [tab, setTab] = useState<'escritorio' | 'perfil'>('escritorio')
+  const [tab, setTab] = useState<'escritorio' | 'perfil' | 'seguranca'>('escritorio')
 
   const [escritorioForm, setEscritorioForm] = useState({
     nome: escritorio?.nome || '',
@@ -48,6 +48,50 @@ export function ConfiguracoesClient({
   })
 
   const [loading, setLoading] = useState(false)
+
+  const [senhaForm, setSenhaForm] = useState({ senhaAtual: '', senhaNova: '', confirmar: '' })
+
+  async function saveSenha() {
+    if (senhaForm.senhaNova.length < 6) {
+      toast.error('A nova senha precisa de pelo menos 6 caracteres')
+      return
+    }
+    if (senhaForm.senhaNova !== senhaForm.confirmar) {
+      toast.error('A confirmação não coincide com a nova senha')
+      return
+    }
+    if (senhaForm.senhaNova === senhaForm.senhaAtual) {
+      toast.error('A nova senha tem de ser diferente da actual')
+      return
+    }
+
+    setLoading(true)
+    try {
+      const res = await fetch('/api/proxy/usuarios/me/senha', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          senhaAtual: senhaForm.senhaAtual,
+          senhaNova: senhaForm.senhaNova,
+        }),
+      })
+      if (!res.ok) {
+        const bruto = await res.text()
+        let mensagem = bruto
+        try {
+          const j = JSON.parse(bruto)
+          mensagem = Array.isArray(j.message) ? j.message.join(', ') : j.message || bruto
+        } catch {}
+        throw new Error(mensagem)
+      }
+      setSenhaForm({ senhaAtual: '', senhaNova: '', confirmar: '' })
+      toast.success('Senha alterada! Use a nova senha no próximo login.')
+    } catch (e: any) {
+      toast.error('Erro: ' + (e.message || 'falha ao alterar a senha'))
+    } finally {
+      setLoading(false)
+    }
+  }
 
   async function saveEscritorio() {
     setLoading(true)
@@ -109,6 +153,16 @@ export function ConfiguracoesClient({
           }`}
         >
           <User className="h-4 w-4" /> Meu Perfil
+        </button>
+        <button
+          onClick={() => setTab('seguranca')}
+          className={`px-4 py-2 border-b-2 flex items-center gap-2 ${
+            tab === 'seguranca'
+              ? 'border-brand-600 text-brand-600 font-medium'
+              : 'border-transparent text-muted-foreground'
+          }`}
+        >
+          <KeyRound className="h-4 w-4" /> Segurança
         </button>
       </div>
 
@@ -224,6 +278,66 @@ export function ConfiguracoesClient({
             >
               <Save className="h-4 w-4" />
               {loading ? 'Salvando...' : 'Salvar'}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {tab === 'seguranca' && (
+        <div className="rounded-xl border bg-card p-6 max-w-2xl space-y-4">
+          <div>
+            <h3 className="font-medium">Alterar senha</h3>
+            <p className="text-sm text-muted-foreground">
+              A senha que lhe deram no convite só pode ser trocada por si.
+            </p>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Senha actual *</label>
+            <input
+              type="password"
+              value={senhaForm.senhaAtual}
+              onChange={(e) => setSenhaForm({ ...senhaForm, senhaAtual: e.target.value })}
+              autoComplete="current-password"
+              className="w-full rounded-lg border bg-white px-3 py-2 dark:bg-slate-800"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Nova senha *</label>
+              <input
+                type="password"
+                value={senhaForm.senhaNova}
+                onChange={(e) => setSenhaForm({ ...senhaForm, senhaNova: e.target.value })}
+                autoComplete="new-password"
+                className="w-full rounded-lg border bg-white px-3 py-2 dark:bg-slate-800"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Confirmar *</label>
+              <input
+                type="password"
+                value={senhaForm.confirmar}
+                onChange={(e) => setSenhaForm({ ...senhaForm, confirmar: e.target.value })}
+                autoComplete="new-password"
+                className="w-full rounded-lg border bg-white px-3 py-2 dark:bg-slate-800"
+              />
+            </div>
+          </div>
+
+          <p className="text-xs text-muted-foreground">
+            Mínimo 6 caracteres. A sessão actual mantém-se activa.
+          </p>
+
+          <div className="flex justify-end">
+            <button
+              onClick={saveSenha}
+              disabled={loading}
+              className="flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-white hover:bg-brand-700 disabled:opacity-50"
+            >
+              <KeyRound className="h-4 w-4" />
+              {loading ? 'A alterar...' : 'Alterar senha'}
             </button>
           </div>
         </div>

@@ -18,9 +18,24 @@ function LoginForm() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [escritorio, setEscritorio] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+
+  // O next-auth v4 devolve o erro de authorize() como "Error: <mensagem>" no
+  // query param `error`. Limpa o prefixo e traduz os códigos genéricos.
+  function traduzirErro(bruto: string): string {
+    const limpo = bruto.replace(/^Error:\s*/, '').trim()
+    if (!limpo) return 'Não foi possível entrar. Tente novamente.'
+    if (limpo === 'CredentialsSignin' || limpo === 'OAuthSignin') {
+      return 'Email ou senha incorretos.'
+    }
+    if (limpo === 'OAuthAccountNotLinked') {
+      return 'Esta conta usa outro método de entrada.'
+    }
+    return limpo
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -31,11 +46,12 @@ function LoginForm() {
       const result = await signIn('credentials', {
         email,
         password,
+        escritorio,
         redirect: false,
       })
 
       if (result?.error) {
-        setError(result.error)
+        setError(traduzirErro(result.error))
       } else {
         router.push(callbackUrl)
         router.refresh()
@@ -85,12 +101,6 @@ function LoginForm() {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <Label htmlFor="password">Senha</Label>
-              <Link
-                href="/esqueci-senha"
-                className="text-sm text-brand-600 hover:text-brand-700"
-              >
-                Esqueceu a senha?
-              </Link>
             </div>
             <div className="relative">
               <Input
@@ -118,6 +128,28 @@ function LoginForm() {
               </button>
             </div>
           </div>
+
+          <details className="text-sm">
+            <summary className="cursor-pointer text-muted-foreground hover:text-foreground">
+              Entrar num escritório específico
+            </summary>
+            <div className="mt-3 space-y-2">
+              <Label htmlFor="escritorio">CNPJ do escritório</Label>
+              <Input
+                id="escritorio"
+                type="text"
+                inputMode="numeric"
+                placeholder="00.000.000/0000-00"
+                value={escritorio}
+                onChange={(e) => setEscritorio(e.target.value)}
+                autoComplete="off"
+                disabled={isLoading}
+              />
+              <p className="text-xs text-muted-foreground">
+                Só é necessário se o mesmo email existir em mais de um escritório.
+              </p>
+            </div>
+          </details>
 
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? (
