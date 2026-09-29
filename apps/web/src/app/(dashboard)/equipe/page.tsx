@@ -13,8 +13,7 @@ type Membro = {
   funcao: string
   perfil: string
   avatar: string | null
-  telefone: string | null
-  ativo: boolean
+  ultimoLogin: string | null
 }
 
 export default async function EquipePage() {
@@ -26,5 +25,11 @@ export default async function EquipePage() {
     membros = await apiGet<Membro[]>('/api/usuarios')
   } catch {}
 
-  return <EquipeClient membros={Array.isArray(membros) ? membros : []} />
+  return (
+    <EquipeClient
+      membros={Array.isArray(membros) ? membros : []}
+      podeGerenciar={session.user.role === 'ADMIN'}
+      meuId={session.user.id}
+    />
+  )
 }
