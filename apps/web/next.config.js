@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Standalone output for minimal Docker production deploy
-  // output: 'standalone' (desativado - incompatível com pnpm workspace)
+  // output: 'standalone' — desativado, usamos next start
 
   // Experimental features
   experimental: {

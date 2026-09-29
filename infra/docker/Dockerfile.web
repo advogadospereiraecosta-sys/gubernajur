@@ -1,6 +1,7 @@
 FROM node:20-alpine AS deps
 WORKDIR /app
 RUN apk add --no-cache libc6-compat openssl && npm install -g pnpm@9.1.0
+COPY .npmrc ./
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/api/package.json ./apps/api/
 COPY apps/web/package.json ./apps/web/
@@ -10,27 +11,24 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 RUN apk add --no-cache libc6-compat openssl && npm install -g pnpm@9.1.0
 COPY --from=deps /app/node_modules /app/node_modules
-COPY --from=deps /app/apps/api/node_modules /app/apps/api/node_modules
-COPY --from=deps /app/apps/web/node_modules /app/apps/web/node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npx prisma generate --schema prisma/schema.prisma
-RUN rm -rf apps/web/.next apps/web/.next-cache apps/web/tsconfig.tsbuildinfo
 RUN pnpm --filter @gubernajur/web build
 
 FROM node:20-alpine AS runner
 WORKDIR /app/apps/web
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0
-RUN apk add --no-cache openssl && addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 gubernajur
+RUN apk add --no-cache openssl && \
+    addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 gubernajur
 COPY --from=builder --chown=gubernajur:nodejs /app/apps/web/.next /app/apps/web/.next
 COPY --from=builder --chown=gubernajur:nodejs /app/apps/web/public /app/apps/web/public
 COPY --from=builder --chown=gubernajur:nodejs /app/apps/web/package.json /app/apps/web/package.json
 COPY --from=builder --chown=gubernajur:nodejs /app/apps/web/next.config.js /app/apps/web/next.config.js
 COPY --from=builder --chown=gubernajur:nodejs /app/node_modules /app/node_modules
-COPY --from=builder --chown=gubernajur:nodejs /app/apps/web/node_modules /app/apps/web/node_modules
 COPY --from=builder --chown=gubernajur:nodejs /app/prisma /app/prisma
-COPY --from=builder /app/prisma/schema.prisma /app/apps/web/prisma/schema.prisma
-RUN chown -R gubernajur:nodejs /app/apps/web/.next /app/apps/web/node_modules
+RUN chown -R gubernajur:nodejs /app/apps/web/.next
 USER gubernajur
 EXPOSE 3000
-CMD ["sh", "-c", "node node_modules/next/dist/bin/next start"]
+CMD ["sh", "-c", "node /app/node_modules/next/dist/bin/next start"]

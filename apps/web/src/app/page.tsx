@@ -1,9 +1,12 @@
-import { redirect } from 'next/navigation'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+'use client'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { getSession } from 'next-auth/react'
 
-export default async function Home() {
-  const session = await getServerSession(authOptions)
-  if (session) redirect('/painel')
-  redirect('/login')
+export default function Home() {
+  const router = useRouter()
+  useEffect(() => {
+    getSession().then((s) => router.replace(s ? '/painel' : '/login'))
+  }, [router])
+  return null
 }
