@@ -4,6 +4,17 @@
 # (ou simplesmente docker compose up -d sem este arquivo — mas aí sem hot-reload)
 
 services:
+  # Publica Postgres e Redis no host para ligar um cliente SQL (DBeaver,
+  # TablePlus, psql). Só em desenvolvimento — em produção a base fica na rede
+  # interna do compose e ninguém fora a alcança.
+  db:
+    ports:
+      - "127.0.0.1:5432:5432"
+
+  redis:
+    ports:
+      - "127.0.0.1:6379:6379"
+
   api:
     volumes:
       - ./apps/api:/app

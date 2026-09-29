@@ -148,10 +148,33 @@ depois quebra a conexão e obriga a reconfigurar.
 
 ```bash
 # Diário, 3h da manhã
-echo '0 3 * * * cd /opt/gubernajur && docker compose exec -T db pg_dump -U gubernajur gubernajur | gzip > infra/backup/gubernajur-$(date +\%F).sql.gz && find infra/backup -name "*.sql.gz" -mtime +30 -delete' | crontab -
+cd /opt/gubernajur
+chmod +x infra/backup.sh
+( crontab -l 2>/dev/null; echo '0 3 * * * /opt/gubernajur/infra/backup.sh >> /var/log/gubernajur-backup.log 2>&1' ) | crontab -
 ```
 
-Backup que nunca foi restaurado não é backup. Teste a restauração uma vez por mês.
+O script extrai, valida que o dump tem tamanho plausível, só então escreve o
+ficheiro, guarda também o `.env` (sem ele o dump não é restaurável) e apaga o
+que tiver mais de 30 dias. Um `pg_dump | gzip > ficheiro` solto — que é o que
+este guia usava — grava um arquivo válido mas vazio quando a extracção falha, e
+isso passa por um backup bom durante semanas.
+
+**Cópia externa.** O script não sabe (e não deve saber) para onde vão os seus
+dados. Para ter redundância, crie um gancho:
+
+```bash
+cat > /etc/gubernajur-backup-hook.sh <<'HOOK'
+#!/usr/bin/env bash
+# Recebe o caminho do .sql.gz. Substitua pelo seu destino.
+# rclone copyto "$1" "minio:gubernajur/$(basename "$1")"
+# rsync -az "$1" usuario@outra-maquina:/backups/gubernajur/
+HOOK
+chmod +x /etc/gubernajur-backup-hook.sh
+```
+
+Um backup num só disco não é backup. E backup que nunca foi restaurado também
+não é: teste a restauração uma vez por mês, num volume à parte.
+
 
 ## Atualizar
 
